@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Регистрация пользователя</title>
+<link rel="stylesheet" href="../css/normalize.css">
+<link rel="stylesheet" href="../css/input.css">
+<link rel="stylesheet" href="../css/main.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+</head>
+<body class="flex flex-col justify-center w-screen h-screen">
+    <main class="flex size-min justify-center">
+        <div class="flex flex-col w-full max-w-md max-h-full justify-center bg-white border border-gray-200 rounded-lg shadow" id="registrationFormContainer">
+            <div class="flex h-16 justify-between items-center p-5 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-xl  font-semibold text-gray-900 dark:text-white">
+                    Регистрация
+                </h3>
+                <div class="flex items-center p-2 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" id="successMessage" style="display:none;">
+                    <div><span class="font-medium">Регистрация прошла успешно</span></div>
+                </div>
+                
+                <div class="items-center p-2 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800" id="failureMessage" style="display:none;">
+                    <div><span class="font-medium">Произошла ошибка</span></div>
+                </div>
+            </div>
+            <form id="registrationForm" class="flex flex-col justify-center p-5">
+                <div class="mb-6">
+                    <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Придумайте логин</label>
+                    <input type="text" id="username" name="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Логин" required>
+                </div>
+                <div class="mb-6">
+                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Придумайте пароль</label>
+                    <input type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••" required>
+                </div>
+                <div class="mb-6">
+                    <label for="confirmPassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Подтвердите пароль</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••" required>
+                </div>
+                <input type="submit" value="Зарегистрироваться" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <div class="flex justify-center mt-2"><a href="index.html" class="text-blue-700 hover:underline dark:text-blue-500">Главная страница</a></div>
+            </form>
+        </div>
+    </main>
+    <script src="/js/registration.js"></script>
+</body>
+</html>

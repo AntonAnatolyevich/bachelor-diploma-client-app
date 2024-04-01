@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.marbot {
+    margin-bottom: 86px;
+}
