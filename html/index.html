@@ -67,11 +67,14 @@
               <span class="sr-only">Search</span>
           </button>
         </form>
-
+        
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <!-- Modal toggle -->
-            <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="text-white bg-indigo-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+            <button id="authenticationButton" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="text-white bg-indigo-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
               Войти
+            </button>
+            <button id="logoutButton" class="text-white bg-indigo-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+              Выйти
             </button>
             <!-- Main modal -->
             <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -83,6 +86,9 @@
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                                 Вход
                             </h3>
+                            <div class="items-center p-2 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" id="succesMessage" style="display:none;">
+                              <div><span class="font-medium">Успешная авторизация</span></div>
+                          </div>
                             <div class="items-center p-2 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800" id="failureMessage" style="display:none;">
                               <div><span class="font-medium">Неправильный логин или пароль</span></div>
                           </div>
@@ -121,7 +127,7 @@
               </svg>
           </button>
         </div>
-
+        
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">          
           <!-- Список вкладок в header -->
           <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
@@ -133,7 +139,8 @@
             </li> 
           </ul>
         </div>
-        </div>    
+        </div>
+          
       </nav>
 
       <!-- Main section -->
@@ -144,7 +151,7 @@
             </div>
             <!-- Кнопки под картой -->
           <div class="flex flex-wrap justify-between">
-              <button id="AddPlace" data-dropdown-toggle="dropdown" data-dropdown-placement="bottom" class="text-white bg-indigo-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+              <button id="AddPlace" data-dropdown-toggle="dropdown" data-dropdown-placement="bottom" class="text-white bg-indigo-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" disabled>
                 Добавить место
                 <svg class="ml-2" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11.9998 2C10.5413 1.99858 9.11027 2.39629 7.86166 3.15005C6.61306 3.9038 5.59452 4.98486 4.9164 6.27611C4.23827 7.56735 3.92642 9.01954 4.01463 10.4754C4.10284 11.9312 4.58774 13.3351 5.41681 14.535C5.44999 14.6002 5.49023 14.6616 5.53681 14.718L5.65681 14.864C5.76881 15.009 5.88381 15.149 5.98281 15.264L11.2278 21.638C11.3219 21.7515 11.4398 21.8428 11.5733 21.9054C11.7068 21.968 11.8524 22.0003 11.9998 22C12.1476 22.0001 12.2936 21.9674 12.4273 21.9043C12.5609 21.8412 12.6789 21.7492 12.7728 21.635L17.8648 15.43C18.0711 15.2082 18.2641 14.9745 18.4428 14.73L18.5698 14.575C18.6182 14.5162 18.6592 14.4518 18.6918 14.383C19.4821 13.1763 19.9314 11.7785 19.9922 10.3374C20.053 8.89624 19.7231 7.46549 19.0373 6.19653C18.3516 4.92758 17.3355 3.86763 16.0966 3.12889C14.8578 2.39015 13.4422 2.00009 11.9998 2ZM11.9998 7C12.5932 7 13.1732 7.17595 13.6665 7.5056C14.1599 7.83524 14.5444 8.30378 14.7714 8.85195C14.9985 9.40013 15.0579 10.0033 14.9422 10.5853C14.8264 11.1672 14.5407 11.7018 14.1211 12.1213C13.7016 12.5409 13.167 12.8266 12.5851 12.9424C12.0031 13.0581 11.3999 12.9987 10.8518 12.7716C10.3036 12.5446 9.83504 12.1601 9.5054 11.6667C9.17576 11.1734 8.99981 10.5933 8.99981 10C8.99981 9.20435 9.31588 8.44129 9.87849 7.87868C10.4411 7.31607 11.2042 7 11.9998 7Z" fill="#fff"/>
@@ -199,18 +206,17 @@
                 </button>   
           </div>
           <div>
-
           </div>
         </section>
         <section class="flex flex-col gap-5">
           <a href="product.html" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="/docs/images/blog/image-4.jpg" alt="">
+            <img class="object-cover w-full rounded-t-lg h-full md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="https://mystery-51.storage.yandexcloud.net/83db32cf-d820-46a0-893c-ca3764aa8be2" alt="">
             <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
             </div>
           </a>
-          <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+          <a style="height: 256px;" href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
             <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="/docs/images/blog/image-4.jpg" alt="">
             <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
@@ -269,29 +275,5 @@
       </footer>
       <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
       <script src="/js/authentication.js"></script>
-      <script>
-        var scrollPosition = 0;
-
-        function disableScroll() {
-            // Сохраняем текущую позицию прокрутки
-            scrollPosition = window.pageYOffset;
-
-            // Запрещаем прокрутку
-            document.body.style.overflow = 'hidden';
-            document.documentElement.style.overflow = 'hidden';
-
-            // Устанавливаем позицию прокрутки обратно на место
-            window.scrollTo(0, scrollPosition);
-        }
-
-        function enableScroll() {
-            // Разрешаем прокрутку
-            document.body.style.overflow = '';
-            document.documentElement.style.overflow = '';
-
-            // Возвращаем позицию прокрутки
-            window.scrollTo(0, scrollPosition);
-        }
-    </script>
   </body>
 </html>
