@@ -67,7 +67,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Если токен есть, скрываем кнопку входа
         var loginButton = document.getElementById('authenticationButton');
         loginButton.style.display = 'none';
-
+        var addPlaceButton = document.getElementById('AddPlace');
+        addPlaceButton.disabled = false;
+        var alertAddMessage = document.getElementById('alertAddMessage')
+        alertAddMessage.style.display = 'none'
     } else {
         // Если токена нет, показываем кнопку входа
         var logoutButton = document.getElementById('logoutButton');
@@ -84,8 +87,6 @@ document.addEventListener('DOMContentLoaded', function() {
         userIcon.style.display = 'block';
     }
 
-    var addPlaceButton = document.getElementById('AddPlace');
-    addPlaceButton.disabled = false;
 });
 
 // Обработчик события для кнопки выхода

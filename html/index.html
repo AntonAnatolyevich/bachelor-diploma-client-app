@@ -104,11 +104,11 @@
                             <form id="loginForm" class="space-y-4" action="#">
                                 <div>
                                     <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Логин</label>
-                                    <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Логин" required />
+                                    <input value="Anton1010" type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Логин" required />
                                 </div>
                                 <div>
                                     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Пароль</label>
-                                    <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                                    <input value="123456" type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
                                 </div>
                                 <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Войти</button>
                                 <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
@@ -157,6 +157,15 @@
                   <path d="M11.9998 2C10.5413 1.99858 9.11027 2.39629 7.86166 3.15005C6.61306 3.9038 5.59452 4.98486 4.9164 6.27611C4.23827 7.56735 3.92642 9.01954 4.01463 10.4754C4.10284 11.9312 4.58774 13.3351 5.41681 14.535C5.44999 14.6002 5.49023 14.6616 5.53681 14.718L5.65681 14.864C5.76881 15.009 5.88381 15.149 5.98281 15.264L11.2278 21.638C11.3219 21.7515 11.4398 21.8428 11.5733 21.9054C11.7068 21.968 11.8524 22.0003 11.9998 22C12.1476 22.0001 12.2936 21.9674 12.4273 21.9043C12.5609 21.8412 12.6789 21.7492 12.7728 21.635L17.8648 15.43C18.0711 15.2082 18.2641 14.9745 18.4428 14.73L18.5698 14.575C18.6182 14.5162 18.6592 14.4518 18.6918 14.383C19.4821 13.1763 19.9314 11.7785 19.9922 10.3374C20.053 8.89624 19.7231 7.46549 19.0373 6.19653C18.3516 4.92758 17.3355 3.86763 16.0966 3.12889C14.8578 2.39015 13.4422 2.00009 11.9998 2ZM11.9998 7C12.5932 7 13.1732 7.17595 13.6665 7.5056C14.1599 7.83524 14.5444 8.30378 14.7714 8.85195C14.9985 9.40013 15.0579 10.0033 14.9422 10.5853C14.8264 11.1672 14.5407 11.7018 14.1211 12.1213C13.7016 12.5409 13.167 12.8266 12.5851 12.9424C12.0031 13.0581 11.3999 12.9987 10.8518 12.7716C10.3036 12.5446 9.83504 12.1601 9.5054 11.6667C9.17576 11.1734 8.99981 10.5933 8.99981 10C8.99981 9.20435 9.31588 8.44129 9.87849 7.87868C10.4411 7.31607 11.2042 7 11.9998 7Z" fill="#fff"/>
                   </svg>
                 </button>
+                <!-- Alert -->
+                <div id="alertAddMessage" class="flex items-center p-4 text-sm text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800" role="alert">
+                  <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                  </svg>
+                  <span class="sr-only">Info</span>
+                  <div>
+                    <span class="font-medium">Для добавления мест войдите в учетную запись</span></div>
+                </div>
                 <!-- Dropdown menu -->
                 <div id="dropdown" class="hidden bg-white divide-y divide-gray-100 rounded-lg shadow max-w-fit dark:bg-gray-700">
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="AddPlace">
@@ -208,42 +217,8 @@
           <div>
           </div>
         </section>
-        <section class="flex flex-col gap-5">
-          <a href="product.html" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <img class="object-cover w-full rounded-t-lg h-full md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="https://mystery-51.storage.yandexcloud.net/83db32cf-d820-46a0-893c-ca3764aa8be2" alt="">
-            <div class="flex flex-col justify-between p-4 leading-normal">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-            </div>
-          </a>
-          <a style="height: 256px;" href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="/docs/images/blog/image-4.jpg" alt="">
-            <div class="flex flex-col justify-between p-4 leading-normal">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-            </div>
-          </a>
-          <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="/docs/images/blog/image-4.jpg" alt="">
-            <div class="flex flex-col justify-between p-4 leading-normal">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-            </div>
-          </a>
-          <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="/docs/images/blog/image-4.jpg" alt="">
-            <div class="flex flex-col justify-between p-4 leading-normal">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-            </div>
-          </a>
-          <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="/docs/images/blog/image-4.jpg" alt="">
-            <div class="flex flex-col justify-between p-4 leading-normal">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-            </div>
-          </a>
+        <section id="mainCardPlace" class="flex flex-col gap-5">
+          
         </section>
       </main>
       <!-- Footer -->
@@ -275,5 +250,7 @@
       </footer>
       <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
       <script src="/js/authentication.js"></script>
-  </body>
+      <script src="/js/getplaces.js"></script>
+      <script src="/js/get_places.js"></script>
+    </body>
 </html>
