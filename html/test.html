@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Пример карты с метками</title>
+    <meta charset="utf-8">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=190254a5-06f0-4c34-9445-d68d1421a036&lang=ru_RU" type="text/javascript"></script>
+    <style>
+        #map {
+            width: 600px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <form id="placeForm">
+        <label for="name">Название места:</label><br>
+        <input type="text" id="name" name="name"><br>
+        
+        <label for="username">Имя пользователя:</label><br>
+        <input type="text" id="username" name="username"><br>
+        
+        <label for="short_description">Краткое описание:</label><br>
+        <textarea id="short_description" name="short_description"></textarea><br>
+        
+        <label for="full_description">Полное описание:</label><br>
+        <textarea id="full_description" name="full_description"></textarea><br>
+        
+        <label for="how_to_get">Как добраться:</label><br>
+        <textarea id="how_to_get" name="how_to_get"></textarea><br>
+        
+        <label for="address">Адрес:</label><br>
+        <input type="text" id="address" name="address"><br>
+        
+        <label for="rating">Рейтинг:</label><br>
+        <input type="number" id="rating" name="rating" min="0" max="5"><br>
+        
+        <label for="latitude">Широта:</label><br>
+        <input type="text" id="latitude" name="latitude" readonly><br>
+        
+        <label for="longitude">Долгота:</label><br>
+        <input type="text" id="longitude" name="longitude" readonly><br>
+        
+        <label for="tags">Теги (через запятую):</label><br>
+        <input type="text" id="tags" name="tags"><br>
+        
+        <button type="submit">Добавить место</button>
+    </form>
+
+    <script>
+        ymaps.ready(init);
+
+        async function init() {
+            var myMap = new ymaps.Map("map", {
+                center: [55.76, 37.64], // координаты центра карты
+                zoom: 10, // масштаб карты
+                controls: ['zoomControl', 'rulerControl']
+            });
+
+            var addMarkerButton = document.createElement('button');
+            addMarkerButton.textContent = 'Добавить метку';
+            document.body.appendChild(addMarkerButton);
+
+            var pendingPlacemark; // переменная для хранения метки до ее сохранения
+
+            // Обработчик события клика по карте
+            myMap.events.add('click', function (e) {
+                var coords = e.get('coords'); // Получаем координаты клика
+
+                // Удаляем предыдущую ожидающую метку, если она есть
+                if (pendingPlacemark) {
+                    myMap.geoObjects.remove(pendingPlacemark);
+                }
+
+                // Создаем метку для отображения перед подтверждением
+                pendingPlacemark = new ymaps.Placemark(coords, {
+                    hintContent: 'Метка', // подсказка при наведении на метку
+                    balloonContent: 'Новая метка' // текст в балуне метки
+                });
+
+                // Добавляем метку на карту
+                myMap.geoObjects.add(pendingPlacemark);
+
+                // Заполняем поля формы координатами клика
+                document.getElementById('latitude').value = coords[0];
+                document.getElementById('longitude').value = coords[1];
+
+                addMarkerButton.style.display = 'block'; // Показываем кнопку "Добавить метку"
+            });
+
+            // Обработчик отправки формы
+            document.getElementById('placeForm').addEventListener('submit', function (e) {
+                e.preventDefault(); // Предотвращаем отправку формы
+
+                // Получаем данные из формы
+                var formData = new FormData(this);
+                var data = {};
+                formData.forEach(function (value, key) {
+                    data[key] = value;
+                });
+
+                // Добавляем метку на карту
+                myMap.geoObjects.add(pendingPlacemark);
+                pendingPlacemark = null; // Очищаем переменную метки
+
+                // Отправляем данные на сервер (здесь можно реализовать отправку данных)
+                console.log('Данные для отправки:', data);
+
+                // Очищаем форму после отправки
+                this.reset();
+            });
+            fetch('http://localhost:8080/api/v1/places')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(place => {
+                var placemark = new ymaps.Placemark(
+                    [place.latitude, place.longitude], // Координаты места
+                    {
+                        hintContent: place.name, // Подсказка при наведении на метку
+                        balloonContent: place.description // Текст в балуне метки
+                    }
+                );
+                myMap.geoObjects.add(placemark); // Добавление метки на карту
+            });
+        })
+        .catch(error => console.error('Ошибка загрузки данных:', error));
+        }
+    </script>
+</body>
+</html>
