@@ -5,3 +5,28 @@
 .marbot {
     margin-bottom: 86px;
 }
+
+.preview-image {
+    max-width: 100px; /* Максимальная ширина превью */
+    max-height: 100px; /* Максимальная высота превью */
+    margin-right: 5px; /* Отступ между превью */
+}
+
+.error {
+    background-color: #ffcccc; /* Красный цвет фона */
+    border-color: #ff6666; /* Красный цвет рамки */
+    color: #ff3333; /* Красный цвет текста */
+}
+
+.delete-button {
+    background-color: transparent;
+    color: black;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.delete-button:hover {
+    color: red;
+}

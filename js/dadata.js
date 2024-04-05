@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     var addressInput = document.getElementById('address');
-    var streetSelect = document.getElementById('streets');
 
     // Обработчик события ввода адреса
     addressInput.addEventListener('input', function() {
         var address = this.value;
-        
+
         // Отправка запроса к API DADATA для получения улиц
         fetch('https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address', {
             method: 'POST',
@@ -24,21 +23,22 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             // Обработка полученных улиц
             var streets = data.suggestions.map(suggestion => suggestion.value);
-            
-            // Отображение улиц в выпадающем списке
+
+            // Отображение улиц в даталисте
             updateStreetList(streets);
         })
         .catch(error => console.error('Ошибка при получении улиц:', error));
     });
 
-    // Функция для обновления списка улиц в форме
+    // Функция для обновления даталиста улиц в форме
     function updateStreetList(streets) {
-        // Очистка текущего списка улиц и добавление новых улиц
-        streetSelect.innerHTML = '';
+        var datalist = document.getElementById('streetsList');
+        // Очищаем текущий даталист и добавляем новые улицы
+        datalist.innerHTML = '';
         streets.forEach(street => {
             var option = document.createElement('option');
-            option.textContent = street;
-            streetSelect.appendChild(option);
+            option.value = street;
+            datalist.appendChild(option);
         });
     }
 
