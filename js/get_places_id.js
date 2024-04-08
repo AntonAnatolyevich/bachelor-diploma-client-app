@@ -17,12 +17,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (placeData.creator.id === creator_id) {
                     // Создаем элемент <a> для карточки товара
                     var aElement = document.createElement('a');
-                    aElement.setAttribute('href', 'product.html');
+                    aElement.setAttribute('href', 'place.html?'+ placeData.id);
                     aElement.classList.add('flex', 'flex-col', 'items-center', 'bg-white', 'border', 'border-gray-200', 'rounded-lg', 'shadow', 'md:flex-row', 'md:max-w-xl', 'hover:bg-gray-100', 'dark:border-gray-700', 'dark:bg-gray-800', 'dark:hover:bg-gray-700');
 
                     // Создаем элемент <img> для изображения товара
                     var imgElement = document.createElement('img');
-                    imgElement.setAttribute('src', placeData.attachments);
+                    imgElement.setAttribute('src', placeData.attachments[0]);
                     imgElement.setAttribute('alt', placeData.name);
                     imgElement.classList.add('object-cover', 'w-full', 'rounded-t-lg', 'h-96', 'md:h-auto', 'md:w-48', 'md:rounded-none', 'md:rounded-s-lg');
 

@@ -56,10 +56,25 @@ document.getElementById('add_place_form_button').addEventListener('click', funct
         console.error('Authorization token is missing');
         return;
     }
+    // Получаем файлы из input[type="file"]
+    const fileInput = document.getElementById('fileElem');
+    const files = fileInput.files;
+    console.log(files)
 
-    // Собираем данные из формы
+    // Создаем объект FormData для отправки на сервер
     const formData = new FormData();
-    formData.append('attachments', []);
+
+    // Добавляем файлы в объект FormData, если они выбраны
+    if (files.length > 0) {
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            formData.append('attachments', file);
+        }
+    } else {
+        // Если файлы не выбраны, добавляем пустую строку в attachments
+        formData.append('attachments', '');
+    }
+
     formData.append('place', JSON.stringify({
         name: document.getElementById('name').value,
         short_description: document.getElementById('short_description').value,
@@ -71,13 +86,7 @@ document.getElementById('add_place_form_button').addEventListener('click', funct
         longitude: parseFloat(document.getElementById('longitude').value),
         tags: [document.getElementById('tags').value]
     }));
-    // // Добавляем файлы, если они выбраны
-    // const fileInput = document.getElementById('fileElem');
-    // if (fileInput.files.length > 0) {
-    //     for (const file of fileInput.files) {
-    //         formData.append('attachments', file);
-    //     }
-    // }
+
     // Отправляем POST запрос на сервер
     fetch('http://localhost:8080/api/v1/places', {
         method: 'POST',
