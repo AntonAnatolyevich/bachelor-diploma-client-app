@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
             placesData.forEach(function(placeData) {
                 // Создаем элемент <a> для карточки товара
                 var aElement = document.createElement('a');
-                // aElement.setAttribute('style', 'height: 256px;');
                 aElement.setAttribute('href', 'place.html?'+ placeData.id);
                 aElement.classList.add('flex', 'flex-col', 'items-center', 'bg-white', 'border', 'border-gray-200', 'rounded-lg', 'shadow', 'md:flex-row', 'md:max-w-xl', 'hover:bg-gray-100', 'dark:border-gray-700', 'dark:bg-gray-800', 'dark:hover:bg-gray-700');
 

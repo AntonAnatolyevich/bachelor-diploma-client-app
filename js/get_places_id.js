@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     // Создаем элемент <img> для изображения товара
                     var imgElement = document.createElement('img');
+                    imgElement.setAttribute('style', 'height: 192px; width: 192px;');
                     imgElement.setAttribute('src', placeData.attachments[0]);
                     imgElement.setAttribute('alt', placeData.name);
                     imgElement.classList.add('object-scale-down', 'w-full', 'rounded-t-lg', 'h-96', 'md:h-auto', 'md:w-48', 'md:rounded-none', 'md:rounded-s-lg');
