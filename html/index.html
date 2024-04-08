@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PleinAir - удобный поиск мест</title>
-    <link rel="shortcut icon" href="/images/PleinAirLogo.jpeg" />
+    <link rel="shortcut icon" href="/images/PleinAirLogo_2.svg" class="h-14"/>
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/input.css">
     <link rel="stylesheet" href="../css/main.css">
@@ -18,7 +18,7 @@
         
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="../images/PleinAirLogo.jpeg" class="h-8" alt="PlainAir Logo">
+            <img src="../images/PleinAirLogo_2.svg" class="h-14" alt="PlainAir Logo">
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">PleinAir</span>
         </a>
 
@@ -45,9 +45,26 @@
             <button id="authenticationButton" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="text-white bg-indigo-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
               Войти
             </button>
-            <button id="logoutButton" class="text-white bg-indigo-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-              Выйти
-            </button>
+            <!--Avatar -->           
+            <img id="header_avatar" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start" class="ring-2 ring-indigo-400 w-10 h-10 rounded-full cursor-pointer" alt="User dropdown">
+            <!-- Dropdown menu -->
+            <div id="userDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-50 dark:bg-gray-700 dark:divide-gray-600">
+                <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                  <div id="avatar_username"></div>
+                  <div id="email" class="font-medium truncate"></div>
+                </div>
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="avatarButton">
+                  <li>
+                    <a href="profile.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Профиль</a>
+                  </li>
+                </ul>
+                <div class="px-2 py-1">
+                  <button id="logoutButton" class="block text-white bg-indigo-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                    Выйти
+                  </button>
+                </div>
+            </div>
+            <!--Avatar -->
             <!-- Main modal -->
             <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                 <div class="relative p-4 w-full max-w-md max-h-full">
@@ -107,8 +124,8 @@
               <a href="index.html" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Главная</a>
             </li>
             <li>
-              <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">О нас</a>
-            </li> 
+              <a href="test.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">О нас</a>
+            </li>
           </ul>
         </div>
         </div>   
@@ -163,7 +180,7 @@
                   </button>
                 </div>
                 <!-- Modal body -->
-                <form class="flex flex-col items-stretch gap-5 p-4 md:p-5">
+                <form enctype="multipart/form-data" class="flex flex-col items-stretch gap-5 p-4 md:p-5">
                   <div class="flex flex-row gap-5">
                   <!-- Карта в форме добавления -->
                   <div class="flex flex-col">
@@ -171,11 +188,11 @@
                     <div class="flex flex-row gap-3">
                       <div class="">
                         <label for="latitude" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Широта</label>
-                        <input type="number" name="latitude" id="latitude" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">
+                        <input type="text" name="latitude" id="latitude" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">
                       </div>
                       <div class="">
                           <label for="longitude" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Долгота</label>
-                          <input type="number" name="longitude" id="longitude" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">
+                          <input type="text" name="longitude" id="longitude" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required="">
                       </div>
                     </div>
                   </div>
@@ -220,7 +237,7 @@
                 </div>
                 <div>
                   <div class="col-span-4" style="flex: 1;">
-                    <label for="images" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Добавьте фото</label>
+                    <label for="fileElem" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Добавьте фото</label>
                     <div id="drop-area" class="bg-gray-100 border border-gray-300 rounded-lg mb-2 p-6 text-gray-600 text-center cursor-pointer">
                         <input type="file" id="fileElem" multiple accept="image/*" style="display: none;">
                         <p>Перетащите изображение или нажмите для выбора</p>
@@ -243,7 +260,7 @@
           </div>
         </section>
         <!-- Сюда добавляются карточки мест -->
-        <section id="mainCardPlace" class="flex flex-col gap-5">
+        <section id="mainCardPlace" class="flex flex-col gap-5 overflow-y-scroll" style="height: 700px;">
           
         </section>
       </main>
@@ -252,7 +269,7 @@
         <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
             <div class="sm:flex sm:items-center sm:justify-between">
                 <a href="#" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-                    <img src="../images/PleinAirLogo.jpeg" class="h-8" alt="PlainAir Logo" />
+                    <img src="../images/PleinAirLogo_2.svg" class="h-14" alt="PlainAir Logo" />
                     <span class="text-white self-center text-2xl font-semibold whitespace-nowrap dark:text-white">PleinAir</span>
                 </a>
                 <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0 dark:text-gray-400">

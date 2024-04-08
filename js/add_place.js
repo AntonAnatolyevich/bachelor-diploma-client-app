@@ -46,9 +46,20 @@ document.getElementById('abort_form_button').addEventListener('click', function(
     document.getElementById('preview').innerHTML = ''; // Очищаем превью фотографий
 });
 
-document.getElementById('add_place_form_button').addEventListener('click', function() {
+document.getElementById('add_place_form_button').addEventListener('click', function(event) {
+    event.preventDefault(); // Отменяем стандартное поведение отправки фо
+    // Получаем токен из localStorage
+    const token = localStorage.getItem('token');
+
+    // Проверяем, что токен присутствует
+    if (!token) {
+        console.error('Authorization token is missing');
+        return;
+    }
+
     // Собираем данные из формы
     const formData = new FormData();
+    formData.append('attachments', []);
     formData.append('place', JSON.stringify({
         name: document.getElementById('name').value,
         short_description: document.getElementById('short_description').value,
@@ -58,30 +69,32 @@ document.getElementById('add_place_form_button').addEventListener('click', funct
         rating: parseInt(document.getElementById('rating').value),
         latitude: parseFloat(document.getElementById('latitude').value),
         longitude: parseFloat(document.getElementById('longitude').value),
-        tags: document.getElementById('tags').value.split(',').map(tag => tag.trim())
+        tags: [document.getElementById('tags').value]
     }));
-
+    // // Добавляем файлы, если они выбраны
+    // const fileInput = document.getElementById('fileElem');
+    // if (fileInput.files.length > 0) {
+    //     for (const file of fileInput.files) {
+    //         formData.append('attachments', file);
+    //     }
+    // }
     // Отправляем POST запрос на сервер
     fetch('http://localhost:8080/api/v1/places', {
         method: 'POST',
         headers: {
-            'Authorization': 'Bearer ${token}',
-            'Content-Type': 'multipart/form-data'
+            'Authorization': `Bearer ${token}` // Используем токен в заголовке
         },
-        body: formData
+        body: formData // Преобразуем объект formData в JSON
     })
     .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
+        
+        console.log(response.json());
         return response.json();
     })
     .then(data => {
         console.log('Success:', data);
         // Очистить форму после успешной отправки данных
-        document.getElementById('clear-all').click();
-    })
-    .catch(error => {
-        console.error('Error:', error);
+        document.querySelector('form').reset();
     });
+    
 });

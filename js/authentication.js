@@ -63,30 +63,29 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
 // Проверка наличия токена при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
     const token = localStorage.getItem('token');
+    const name = localStorage.getItem('name');
+    const last_name = localStorage.getItem('last_name');
+    const email = localStorage.getItem('email');
+    const profile_picture = localStorage.getItem('profile_picture');
     if (token) {
         // Если токен есть, скрываем кнопку входа
         var loginButton = document.getElementById('authenticationButton');
         loginButton.style.display = 'none';
         var addPlaceButton = document.getElementById('AddPlace');
         addPlaceButton.disabled = false;
-        var alertAddMessage = document.getElementById('alertAddMessage')
-        alertAddMessage.style.display = 'none'
+        var alertAddMessage = document.getElementById('alertAddMessage');
+        alertAddMessage.style.display = 'none';
+        //Добавляем в avatar dropdown данные пользователя
+        document.getElementById('avatar_username').innerText = name + ' ' + last_name;
+        document.getElementById('email').innerText = email;
+        document.getElementById('header_avatar').setAttribute('src', profile_picture)
     } else {
         // Если токена нет, показываем кнопку входа
-        var logoutButton = document.getElementById('logoutButton');
-        logoutButton.style.display = 'none';
+        // var logoutButton = document.getElementById('logoutButton');
+        // logoutButton.style.display = 'none';
+        var headerAvatar = document.getElementById('header_avatar');
+        headerAvatar.style.display = 'none'
     }
-
-    // Проверка наличия данных пользователя и отображение иконки пользователя
-    const username = localStorage.getItem('username');
-    const profilePicture = localStorage.getItem('profile_picture');
-    if (username && profilePicture) {
-        const userIcon = document.getElementById('userIcon');
-        userIcon.style.backgroundImage = `url(${profilePicture})`;
-        userIcon.title = username;
-        userIcon.style.display = 'block';
-    }
-
 });
 
 // Обработчик события для кнопки выхода

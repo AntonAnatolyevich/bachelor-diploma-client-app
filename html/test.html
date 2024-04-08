@@ -4,129 +4,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Пример карты с метками</title>
     <meta charset="utf-8">
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=190254a5-06f0-4c34-9445-d68d1421a036&lang=ru_RU" type="text/javascript"></script>
-    <style>
-        #map {
-            width: 600px;
-            height: 400px;
-        }
-    </style>
+    <link rel="shortcut icon" href="/images/PleinAirLogo_2.svg" class="h-14"/>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/input.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    
 </head>
 <body>
-    <div id="map"></div>
-
-    <form id="placeForm">
-        <label for="name">Название места:</label><br>
-        <input type="text" id="name" name="name"><br>
-        
-        <label for="username">Имя пользователя:</label><br>
-        <input type="text" id="username" name="username"><br>
-        
-        <label for="short_description">Краткое описание:</label><br>
-        <textarea id="short_description" name="short_description"></textarea><br>
-        
-        <label for="full_description">Полное описание:</label><br>
-        <textarea id="full_description" name="full_description"></textarea><br>
-        
-        <label for="how_to_get">Как добраться:</label><br>
-        <textarea id="how_to_get" name="how_to_get"></textarea><br>
-        
-        <label for="address">Адрес:</label><br>
-        <input type="text" id="address" name="address"><br>
-        
-        <label for="rating">Рейтинг:</label><br>
-        <input type="number" id="rating" name="rating" min="0" max="5"><br>
-        
-        <label for="latitude">Широта:</label><br>
-        <input type="text" id="latitude" name="latitude" readonly><br>
-        
-        <label for="longitude">Долгота:</label><br>
-        <input type="text" id="longitude" name="longitude" readonly><br>
-        
-        <label for="tags">Теги (через запятую):</label><br>
-        <input type="text" id="tags" name="tags"><br>
-        
-        <button type="submit">Добавить место</button>
-    </form>
+    <button id="toggleButton">Кнопка</button>
+    <a href="#" id="section" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+        <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="/docs/images/blog/image-4.jpg" alt="">
+        <div class="flex flex-col justify-between p-4 leading-normal">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+            <div><button id="1" class="change-color">Кнопка 1</button><button id="2" class="change-color">Кнопка 2</button></div>
+        </div>
+    </a>
+    
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Модальное окно отображается при нажатии на кнопку 2.</p>
+        </div>
+    </div>
 
     <script>
-        ymaps.ready(init);
+        // Получаем кнопку, управляющую видимостью других кнопок
+        var toggleButton = document.getElementById('toggleButton');
 
-        async function init() {
-            var myMap = new ymaps.Map("map", {
-                center: [55.76, 37.64], // координаты центра карты
-                zoom: 10, // масштаб карты
-                controls: ['zoomControl', 'rulerControl']
-            });
+        // Получаем ссылку на секцию
+        var section = document.getElementById('section');
 
-            var addMarkerButton = document.createElement('button');
-            addMarkerButton.textContent = 'Добавить метку';
-            document.body.appendChild(addMarkerButton);
+        // Получаем все кнопки, которые нужно скрывать/показывать
+        var buttonsToToggle = document.querySelectorAll('.change-color');
 
-            var pendingPlacemark; // переменная для хранения метки до ее сохранения
+        // Сохраняем изначальный цвет фона секции
+        var originalBackgroundColor = window.getComputedStyle(section).backgroundColor;
 
-            // Обработчик события клика по карте
-            myMap.events.add('click', function (e) {
-                var coords = e.get('coords'); // Получаем координаты клика
-
-                // Удаляем предыдущую ожидающую метку, если она есть
-                if (pendingPlacemark) {
-                    myMap.geoObjects.remove(pendingPlacemark);
+        // Добавляем обработчик события для кнопки управления видимостью
+        toggleButton.addEventListener('click', function() {
+            // Проходимся по каждой кнопке, которую нужно скрывать/показывать
+            buttonsToToggle.forEach(function(button) {
+                // Переключаем видимость кнопки
+                if (button.style.display === 'none') {
+                    button.style.display = 'block';
+                    // Восстанавливаем изначальный цвет фона секции
+                    section.style.backgroundColor = originalBackgroundColor;
+                } else {
+                    button.style.display = 'none';
                 }
-
-                // Создаем метку для отображения перед подтверждением
-                pendingPlacemark = new ymaps.Placemark(coords, {
-                    hintContent: 'Метка', // подсказка при наведении на метку
-                    balloonContent: 'Новая метка' // текст в балуне метки
-                });
-
-                // Добавляем метку на карту
-                myMap.geoObjects.add(pendingPlacemark);
-
-                // Заполняем поля формы координатами клика
-                document.getElementById('latitude').value = coords[0];
-                document.getElementById('longitude').value = coords[1];
-
-                addMarkerButton.style.display = 'block'; // Показываем кнопку "Добавить метку"
             });
+        });
 
-            // Обработчик отправки формы
-            document.getElementById('placeForm').addEventListener('submit', function (e) {
-                e.preventDefault(); // Предотвращаем отправку формы
+        // Получаем кнопку 2
+        var button2 = document.getElementById('2');
 
-                // Получаем данные из формы
-                var formData = new FormData(this);
-                var data = {};
-                formData.forEach(function (value, key) {
-                    data[key] = value;
-                });
+        // Добавляем обработчик события для кнопки 2
+        button2.addEventListener('click', function() {
+            // Отображаем модальное окно
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'block';
 
-                // Добавляем метку на карту
-                myMap.geoObjects.add(pendingPlacemark);
-                pendingPlacemark = null; // Очищаем переменную метки
+            // Получаем элемент закрытия модального окна
+            var closeBtn = document.getElementsByClassName('close')[0];
 
-                // Отправляем данные на сервер (здесь можно реализовать отправку данных)
-                console.log('Данные для отправки:', data);
+            // Добавляем обработчик события для закрытия модального окна при нажатии на крестик
+            closeBtn.onclick = function() {
+                modal.style.display = 'none';
+            };
 
-                // Очищаем форму после отправки
-                this.reset();
-            });
-            fetch('http://localhost:8080/api/v1/places')
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(place => {
-                var placemark = new ymaps.Placemark(
-                    [place.latitude, place.longitude], // Координаты места
-                    {
-                        hintContent: place.name, // Подсказка при наведении на метку
-                        balloonContent: place.description // Текст в балуне метки
-                    }
-                );
-                myMap.geoObjects.add(placemark); // Добавление метки на карту
-            });
-        })
-        .catch(error => console.error('Ошибка загрузки данных:', error));
-        }
+            // Закрываем модальное окно при клике вне его
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            };
+        });
     </script>
 </body>
+
+
+
+
+
 </html>

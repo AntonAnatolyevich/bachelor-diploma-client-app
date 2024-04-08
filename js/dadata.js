@@ -42,21 +42,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Обработчик отправки формы
-    document.getElementById('placeForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Предотвращаем отправку формы
+    // // Обработчик отправки формы
+    // document.getElementById('placeForm').addEventListener('submit', function(event) {
+    //     event.preventDefault(); // Предотвращаем отправку формы
 
-        // Получаем данные из формы
-        var formData = new FormData(this);
-        var data = {};
-        formData.forEach(function (value, key) {
-            data[key] = value;
-        });
+    //     // Получаем данные из формы
+    //     var formData = new FormData(this);
+    //     var data = {};
+    //     formData.forEach(function (value, key) {
+    //         data[key] = value;
+    //     });
 
-        // Отправляем данные на сервер (здесь можно реализовать отправку данных)
-        console.log('Данные для отправки:', data);
+    //     // Отправляем данные на сервер (здесь можно реализовать отправку данных)
+    //     console.log('Данные для отправки:', data);
 
-        // Очищаем форму после отправки
-        this.reset();
-    });
+    //     // Очищаем форму после отправки
+    //     this.reset();
+    // });
 });
