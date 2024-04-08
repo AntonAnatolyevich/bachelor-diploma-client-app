@@ -45,6 +45,35 @@ document.getElementById('abort_form_button').addEventListener('click', function(
     document.getElementById('how_to_get').value = '';
     document.getElementById('preview').innerHTML = ''; // Очищаем превью фотографий
 });
+document.getElementById('fileElem').addEventListener('change', function() {
+    // Очищаем предыдущий предпросмотр фотографий
+    // document.getElementById('preview').innerHTML = '';
+    
+    // Получаем файлы из input[type="file"]
+    const files = this.files;
+    
+    // Создаем элементы img для каждого выбранного файла и добавляем их в контейнер предпросмотра
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.width = 100; // Устанавливаем ширину предпросмотра
+            img.height = 100; // Устанавливаем высоту предпросмотра
+            document.getElementById('preview').appendChild(img);
+        };
+        
+        reader.readAsDataURL(file);
+    }
+});
+
+document.getElementById('clear-all').addEventListener('click', function() {
+    document.getElementById('fileElem').value = '';
+    document.getElementById('preview').innerHTML = '';
+});
 
 document.getElementById('add_place_form_button').addEventListener('click', function(event) {
     event.preventDefault(); // Отменяем стандартное поведение отправки фо

@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     var imgElement = document.createElement('img');
                     imgElement.setAttribute('src', placeData.attachments[0]);
                     imgElement.setAttribute('alt', placeData.name);
-                    imgElement.classList.add('object-cover', 'w-full', 'rounded-t-lg', 'h-96', 'md:h-auto', 'md:w-48', 'md:rounded-none', 'md:rounded-s-lg');
+                    imgElement.classList.add('object-scale-down', 'w-full', 'rounded-t-lg', 'h-96', 'md:h-auto', 'md:w-48', 'md:rounded-none', 'md:rounded-s-lg');
 
                     // Создаем контейнер для текста карточки товара
                     var divElement = document.createElement('div');
