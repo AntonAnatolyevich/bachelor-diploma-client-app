@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 var img = document.createElement('img');
                 img.src = photo;
-                img.classList.add('absolute', 'block', 'w-full', '-translate-x-1/2', '-translate-y-1/2', 'top-1/2', 'left-1/2');
+                img.classList.add('object-scale-down', 'absolute', 'block', 'w-96', '-translate-x-1/2', '-translate-y-1/2', 'top-1/2', 'left-1/2');
                 img.alt = 'Slide ' + (index + 1);
 
                 carouselItem.appendChild(img);
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             document.getElementById('place_inspect_name').innerText = placeData.name ;
             document.getElementById('place_inspect_avatar').setAttribute('src', placeData.creator.profile_picture);
-            document.getElementById('place_creator_username').innerText = placeData.creator.username + ' ' + placeData.creator.name + ' ' + placeData.creator.last_name;
+            document.getElementById('place_creator_username').innerText = placeData.creator.username +'#'+ placeData.creator.id ;
             
             // Создаем карту
             ymaps.ready(initMap);

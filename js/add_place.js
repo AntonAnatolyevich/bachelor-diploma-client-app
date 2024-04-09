@@ -1,6 +1,6 @@
 ymaps.ready(init);
 
-    function init() {
+    async function init() {
         var myMap = new ymaps.Map('add_map', {
             center: [55.753215, 37.622504], // Начальные координаты (Москва)
             zoom: 10 // Начальный масштаб карты
