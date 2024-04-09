@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 messageTime.textContent = day + ' ' + monthNames[monthIndex] + ' ' + year + ', ' + hours + ':' + (minutes < 10 ? '0' : '') + minutes;
 
                 const messageText = document.createElement('p');
-                messageText.classList.add('text-sm', 'font-normal', 'py-2.5', 'text-gray-900', 'dark:text-white');
+                messageText.classList.add('comment_text', 'text-sm', 'font-normal', 'py-2.5', 'text-gray-900', 'dark:text-white');
                 messageText.textContent = commentData.message;
 
                 const messageStatus = document.createElement('span');
