@@ -30,3 +30,11 @@
 .delete-button:hover {
     color: red;
 }
+
+.get_comments_edit_btn:hover path {
+    fill: #854d0e;
+}
+
+.get_comments_delete_btn:hover path {
+    fill: #991b1b;
+}

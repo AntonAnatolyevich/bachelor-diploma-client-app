@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Получаем ссылку на Slider indicators
             var sliderIndicators = document.getElementById('place_inspect_indicators');
 
+            // Получаем ссылку на контейнер для кнопок редактирования
+            var manipulation_button_container = document.getElementById('manipulation_button_container');
+
             // Проходимся по массиву фотографий
             placeData.attachments.forEach(async function(photo, index) {
                 // Создаем элемент для фотографии в Carousel wrapper
@@ -46,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     indicatorButton.setAttribute('aria-current', 'false');
                 }
                 sliderIndicators.appendChild(indicatorButton);
+                
             });
             
             document.getElementById('place_inspect_name').innerText = placeData.name ;
@@ -94,8 +98,27 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('place_inspect_created_at').innerText = 'Опубликовано: ' + day + ' ' + monthNames[monthIndex] + ' ' + year + ', ' + hours + ':' + (minutes < 10 ? '0' : '') + minutes;
             document.getElementById('place_inspect_full_description').innerText = placeData.full_description;
             document.getElementById('place_inspect_how_to_get').innerText = placeData.how_to_get;
+
+            sessionStorage.setItem('placeName', placeData.name);
             
-            
+            if (placeData.creator.id === localStorage.id) {
+                const manipulation_button_delete = document.createElement('button');
+                manipulation_button_delete.type = 'button';
+                manipulation_button_delete.setAttribute('data-modal-target', 'popup-modal');
+                manipulation_button_delete.setAttribute('data-modal-toggle', 'popup-modal');
+                manipulation_button_delete.classList.add('text-white', 'bg-red-400', 'hover:bg-red-800', 'focus:ring-4', 'focus:ring-red-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'dark:bg-blue-600', 'dark:hover:bg-blue-700', 'focus:outline-none', 'dark:focus:ring-blue-800');
+                manipulation_button_delete.innerText = 'Удалить';
+
+                const manipulation_button_edit = document.createElement('button');
+                manipulation_button_edit.type = 'button';
+                manipulation_button_edit.setAttribute('data-modal-target', 'popup-modal1');
+                manipulation_button_edit.setAttribute('data-modal-toggle', 'popup-modal1');
+                manipulation_button_edit.classList.add('text-white', 'bg-yellow-400', 'hover:bg-yellow-900', 'focus:ring-4', 'focus:ring-yellow-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'dark:bg-blue-600', 'dark:hover:bg-blue-700', 'focus:outline-none', 'dark:focus:ring-blue-800');
+                manipulation_button_edit.innerText = 'Редактировать';
+                
+                manipulation_button_container.appendChild(manipulation_button_edit);
+                manipulation_button_container.appendChild(manipulation_button_delete);
+            }
         });
 });
 

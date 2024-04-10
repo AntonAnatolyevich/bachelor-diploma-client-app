@@ -1,8 +1,11 @@
 document.getElementById('learn_comments').addEventListener('click', function() {
     // Находим все кнопки удаления комментариев
-    const eidtButtons = document.querySelectorAll('.edit-comment-btn');
+    const editButtons = document.querySelectorAll('.edit-comment-btn');
+    const add_comment_button = document.getElementById('add_comment_by_id');
+    const update_comment_button = document.getElementById('update_comment_by_id');
+    const cansel_comment_button = document.getElementById('cansel_btn');
     // Проходимся по каждой кнопке и добавляем обработчик события на клик
-    eidtButtons.forEach(button => {
+    editButtons.forEach(button => {
         button.addEventListener('click', function() {
             // Находим родительский элемент комментария
             const commentElement = this.closest('.comment');
@@ -14,8 +17,20 @@ document.getElementById('learn_comments').addEventListener('click', function() {
                 const paragraphElement = commentElement.querySelector('p').textContent;
                 document.getElementById('chat').value = paragraphElement;
             }
+
+            add_comment_button.style.display = 'none';
+            update_comment_button.style.display = 'block';
+            cansel_comment_button.style.display = 'block';
         });
     });
+
+    document.getElementById('cansel_btn').addEventListener('click', function() {
+        add_comment_button.style.display = 'block';
+        update_comment_button.style.display = 'none';
+        cansel_comment_button.style.display = 'none';
+        document.getElementById('chat').value = '';
+    });
+
     document.getElementById('update_comment_by_id').addEventListener('click', function() {
         event.preventDefault(); // Отменяем стандартное поведение отправки фо
         // Получаем токен из localStorage

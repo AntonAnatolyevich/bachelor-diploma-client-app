@@ -29,6 +29,7 @@ document.getElementById('learn_comments').addEventListener('click', function() {
                     }
                     // Успешно удален, обновляем список комментариев или какую-либо другую часть интерфейса
                     console.log('Комментарий успешно удален');
+                    window.location.reload();
                     // Обновление страницы или части интерфейса
                 })
                 .catch(error => {
