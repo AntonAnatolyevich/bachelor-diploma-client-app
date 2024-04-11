@@ -201,7 +201,7 @@
                     </h2>
                     <div id="accordion-open-body-2" class="hidden" aria-labelledby="accordion-open-heading-2">
                         <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
-                            <p id="place_inspect_how_to_get" class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
+                            <p id="place_inspect_how_to_get" class="mb-2 text-gray-500 dark:text-gray-400"></p>
                         </div>
                     </div>
                     <h2 id="accordion-open-heading-3">
@@ -214,28 +214,10 @@
                     </h2>
                     <div id="accordion-open-body-3" class="hidden" aria-labelledby="accordion-open-heading-3">
                         <div id="commets_container" class="flex flex-col gap-1 p-5 border border-t-0 border-gray-200 dark:border-gray-700">
-                        <!--<div class="flex items-start gap-2.5">
-                                <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="Jese image">
-                                <div class="flex flex-col w-full max-w-[500px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
-                                <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                                    <span class="text-sm font-semibold text-gray-900 dark:text-white">Bonnie Green</span>
-                                    <span class="text-sm font-normal text-gray-500 dark:text-gray-400">11:46</span>
-                                </div>
-                                <p class="text-sm font-normal py-2.5 text-gray-900 dark:text-white">That's awesome. I think our users will really appreciate the improvements.</p>
-                                </div>
-                            </div> -->
                         </div>
                         <form>
                             <label for="chat" class="sr-only">Ваше сообщение</label>
                             <div class="flex items-center px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-700">
-                                <!-- <button type="button" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
-                                        <path fill="currentColor" d="M13 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0ZM7.565 7.423 4.5 14h11.518l-2.516-3.71L11 13 7.565 7.423Z"/>
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 1H2a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0ZM7.565 7.423 4.5 14h11.518l-2.516-3.71L11 13 7.565 7.423Z"/>
-                                    </svg>
-                                    <span class="sr-only">Upload image</span>
-                                </button> -->
                                 <textarea id="chat" rows="1" class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Написать комментарий..."></textarea>
                                 <button style="display: none;" id="cansel_btn" type="button" class="inline-flex justify-center p-2 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg w-8 h-8 dark:hover:bg-gray-600 dark:hover:text-white">
                                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -278,7 +260,7 @@
                             <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                             </svg>
-                            <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Это место будет навсегда удалено. Введите</h3>
+                            <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Это место будет навсегда удалено. Для подтверждения введите название</h3>
                             <!-- Форма для записи текста -->
                             <input type="text" id="delete_check_text" class=" w-full mb-2 px-4 py-2 border border-red-500 rounded-md dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400" rows="4" placeholder="">
                             <!-- Кнопки -->
@@ -289,6 +271,98 @@
                     </div>
                 </div>
             </div>
+
+              <!-- Main add modal -->
+              <div id="popup-modal-update" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                <div class="relative p-4 mx-auto max-h-full max-w-2x1 max-w-">
+                  <!-- Modal content -->
+                  <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <!-- Modal header -->
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                      <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                          Редактировать место
+                      </h3>
+                      <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="popup-modal-update">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Закрыть</span>
+                      </button>
+                    </div>
+                    <!-- Modal body -->
+                    <form enctype="multipart/form-data" class="flex flex-col items-stretch gap-5 p-4 md:p-5">
+                      <div class="flex flex-row gap-5">
+                      <!-- Карта в форме добавления -->
+                      <div class="flex flex-col">
+                        <div id="add_map" style="width: 100%; height: 100%"></div>
+                        <div class="flex flex-row gap-3">
+                          <div class="">
+                            <label for="latitude" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Широта</label>
+                            <input type="text" name="latitude" id="latitude" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="">
+                          </div>
+                          <div class="">
+                              <label for="longitude" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Долгота</label>
+                              <input type="text" name="longitude" id="longitude" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="">
+                          </div>
+                        </div>
+                      </div>
+                      <!-- -->
+                      <div class="flex flex-col gap-3">
+                        <div class="">
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Название места</label>
+                            <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Введите название">
+                        </div>
+                        <div class="">
+                            <label for="short_description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Краткое описание (оно отображается на карточке)</label>
+                            <input type="text" name="short_description" id="short_description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Напишите краткое описание">
+                        </div>
+                        <div class="">
+                          <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Адрес (при наличии)</label>
+                          <input type="text" name="address" id="address" list="streetsList" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Введите адрес">
+                          <!-- Даталист улиц для выбора -->
+                          <datalist id="streetsList">
+                              <!-- Сюда будут добавлены варианты улиц -->
+                          </datalist>
+                        </div>
+                        <div class="">
+                            <label for="rating" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ваша оценка</label>
+                            <input type="number" name="rating" id="rating" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" min="0" max="5" placeholder="От 1 до 5">
+                        </div>
+                        <div class="">
+                          <label for="tags" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Тэги</label>
+                          <input type="text" name="tags" id="tags" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="&laquo;Тэг &#8470;&nbsp;1&raquo;, &laquo;Тэг &#8470;&nbsp;2&raquo;, и&nbsp;т.д.">
+                        </div>
+                      </div>
+                      <!-- -->
+                      <div class="flex flex-col gap-3">
+                        <div class="">
+                            <label for="full_description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Описание</label>
+                            <textarea type="text" name="full_description" id="full_description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block shrink w-56 h-48 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Подробное описание места"></textarea>
+                            </div>
+                        <div class="">
+                            <label for="how_to_get" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Как добраться?</label>
+                            <textarea type="textarea" name="how_to_get" id="how_to_get" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block shrink w-56 h-48 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Маршрут к месту"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                        <label for="fileElem" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Добавьте фото</label>
+                        <input type="file" id="fileElem" multiple accept="image/*" class="text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
+                        <div id="preview" class="flex flex-row gap-5 mt-3"></div>
+                        <button id="clear-all" type="button" class="mt-3 inline-flex items-center px-3 py-1.5 bg-red-400 text-white rounded-lg">Очистить</button>
+                      </div>
+                    <div class="flex justify-end gap-3">
+                      <button id="add_update_place_form_button" type="submit" class="text-white inline-flex items-center bg-indigo-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                          Добавить
+                      </button>
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+
+
         </section>
         <!-- Яндекс карта -->
     </section>
@@ -329,5 +403,7 @@
     <script src="/js/delete_comment.js"></script>
     <script src="/js/update_comments.js"></script>
     <script src="/js/delete_place.js"></script>
+    <script src="/js/update_place.js"></script>
+    <script src="/js/dadata.js"></script>
 </body>
 </html>

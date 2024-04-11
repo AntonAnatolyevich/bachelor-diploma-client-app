@@ -111,8 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const manipulation_button_edit = document.createElement('button');
                 manipulation_button_edit.type = 'button';
-                manipulation_button_edit.setAttribute('data-modal-target', 'popup-modal1');
-                manipulation_button_edit.setAttribute('data-modal-toggle', 'popup-modal1');
+                manipulation_button_edit.setAttribute('data-modal-target', 'popup-modal-update');
+                manipulation_button_edit.setAttribute('data-modal-toggle', 'popup-modal-update');
                 manipulation_button_edit.classList.add('text-white', 'bg-yellow-400', 'hover:bg-yellow-900', 'focus:ring-4', 'focus:ring-yellow-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'dark:bg-blue-600', 'dark:hover:bg-blue-700', 'focus:outline-none', 'dark:focus:ring-blue-800');
                 manipulation_button_edit.innerText = 'Редактировать';
                 

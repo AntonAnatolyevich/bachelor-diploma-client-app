@@ -47,7 +47,7 @@ document.getElementById('abort_form_button').addEventListener('click', function(
 });
 document.getElementById('fileElem').addEventListener('change', function() {
     // Очищаем предыдущий предпросмотр фотографий
-    // document.getElementById('preview').innerHTML = '';
+    document.getElementById('preview').innerHTML = '';
     
     // Получаем файлы из input[type="file"]
     const files = this.files;
@@ -71,7 +71,6 @@ document.getElementById('fileElem').addEventListener('change', function() {
 });
 
 document.getElementById('clear-all').addEventListener('click', function() {
-    document.getElementById('fileElem').value = '';
     document.getElementById('preview').innerHTML = '';
 });
 
