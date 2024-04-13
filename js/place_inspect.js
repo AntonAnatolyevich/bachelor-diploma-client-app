@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('place_inspect_name').innerText = placeData.name ;
             document.getElementById('place_inspect_avatar').setAttribute('src', placeData.creator.profile_picture);
             document.getElementById('place_creator_username').innerText = placeData.creator.username +'#'+ placeData.creator.id ;
-            
+            sessionStorage.setItem('creator_id', placeData.creator.id);
             // Создаем карту
             ymaps.ready(initMap);
 
@@ -119,6 +119,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 manipulation_button_container.appendChild(manipulation_button_edit);
                 manipulation_button_container.appendChild(manipulation_button_delete);
             }
+                let creator_id = sessionStorage.getItem('creator_id');
+                let curent_creator_id = localStorage.getItem('id');
+                if (creator_id === curent_creator_id) {
+                    document.getElementById('rating').style.display = 'none';
+                }
         });
 });
 

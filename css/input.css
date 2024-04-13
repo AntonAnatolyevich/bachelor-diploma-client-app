@@ -3,38 +3,73 @@
 @tailwind utilities;
 
 .marbot {
-    margin-bottom: 86px;
+  margin-bottom: 86px;
 }
 
 .preview-image {
-    max-width: 100px; /* Максимальная ширина превью */
-    max-height: 100px; /* Максимальная высота превью */
-    margin-right: 5px; /* Отступ между превью */
+  max-width: 100px; /* Максимальная ширина превью */
+  max-height: 100px; /* Максимальная высота превью */
+  margin-right: 5px; /* Отступ между превью */
 }
 
 .error {
-    background-color: #ffcccc; /* Красный цвет фона */
-    border-color: #ff6666; /* Красный цвет рамки */
-    color: #ff3333; /* Красный цвет текста */
+  background-color: #ffcccc; /* Красный цвет фона */
+  border-color: #ff6666; /* Красный цвет рамки */
+  color: #ff3333; /* Красный цвет текста */
 }
 
 .delete-button {
-    background-color: transparent;
-    color: black;
-    border: none;
-    font-size: 12px;
-    cursor: pointer;
-    transition: color 0.3s;
+  background-color: transparent;
+  color: black;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
 .delete-button:hover {
-    color: red;
+  color: red;
 }
 
 .get_comments_edit_btn:hover path {
-    fill: #854d0e;
+  fill: #854d0e;
 }
 
 .get_comments_delete_btn:hover path {
-    fill: #991b1b;
+  fill: #991b1b;
+}
+
+.card {
+  max-width: 5rem;
+  background: #fff;
+  margin: 0 1rem;
+  padding: 1rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.star {
+  font-size: 1vh;
+  cursor: pointer;
+}
+
+.one {
+  color: rgb(255, 0, 0);
+}
+
+.two {
+  color: rgb(255, 106, 0);
+}
+
+.three {
+  color: rgb(251, 255, 120);
+}
+
+.four {
+  color: rgb(255, 255, 0);
+}
+
+.five {
+  color: rgb(24, 159, 14);
 }

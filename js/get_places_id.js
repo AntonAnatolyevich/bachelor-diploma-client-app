@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var mainCardPlace = document.getElementById('mainCardPlace');
 
     var creator_id = localStorage.getItem('id');
-
+    
     // Загружаем файл JSON с сервера
     fetch(jsonUrl)
         .then(response => response.json())
