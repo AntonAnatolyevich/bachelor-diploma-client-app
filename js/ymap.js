@@ -22,7 +22,14 @@ function init() {
     });
 
     // URL файла JSON на сервере
-    var jsonUrl = 'http://localhost:8080/api/v1/places';
+        // Получение параметров фильтров из sessionStorage
+        let filterParams = sessionStorage.getItem('filterParams');
+
+        // Если есть параметры фильтров, добавляем их к URL
+        if (filterParams) {
+            jsonUrl = filterParams;
+        } else {var jsonUrl = 'http://localhost:8080/api/v1/places';}
+    // URL файла JSON на сервере
 
     // Загружаем данные из JSON-файла
     fetch(jsonUrl)
