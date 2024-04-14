@@ -32,7 +32,7 @@
               </div>
               <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Найти" required />
           </div>
-          <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-indigo-400 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          <button id="search_button" type="button" class="p-2.5 ms-2 text-sm font-medium text-white bg-indigo-400 rounded-lg border border-blue-700 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
               <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
               </svg>
@@ -42,7 +42,7 @@
         
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <!-- Modal toggle -->
-            <button id="authenticationButton" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="text-white bg-indigo-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+            <button id="authenticationButton" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="text-white bg-indigo-400 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
               Войти
             </button>
             <!--Avatar -->           
@@ -59,7 +59,7 @@
                   </li>
                 </ul>
                 <div class="px-2 py-1">
-                  <button id="logoutButton" class="block text-white bg-indigo-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                  <button id="logoutButton" class="block text-white bg-indigo-400 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                     Выйти
                   </button>
                 </div>
@@ -99,7 +99,7 @@
                                     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Пароль</label>
                                     <input value="123456" type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
                                 </div>
-                                <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Войти</button>
+                                <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Войти</button>
                                 <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
                                     Не зарегистрированы? <a href="registration.html" class="text-blue-700 hover:underline dark:text-blue-500">Создать профиль</a>
                                 </div>
@@ -139,7 +139,7 @@
             <!-- Кнопки под картой -->
           <div class="flex flex-wrap justify-between">
             <!-- Добавить место -->
-              <button id="AddPlace" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="text-white bg-indigo-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" disabled>
+              <button id="AddPlace" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="text-white bg-indigo-400 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" disabled>
                 Добавить место
                 <svg class="ml-2" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11.9998 2C10.5413 1.99858 9.11027 2.39629 7.86166 3.15005C6.61306 3.9038 5.59452 4.98486 4.9164 6.27611C4.23827 7.56735 3.92642 9.01954 4.01463 10.4754C4.10284 11.9312 4.58774 13.3351 5.41681 14.535C5.44999 14.6002 5.49023 14.6616 5.53681 14.718L5.65681 14.864C5.76881 15.009 5.88381 15.149 5.98281 15.264L11.2278 21.638C11.3219 21.7515 11.4398 21.8428 11.5733 21.9054C11.7068 21.968 11.8524 22.0003 11.9998 22C12.1476 22.0001 12.2936 21.9674 12.4273 21.9043C12.5609 21.8412 12.6789 21.7492 12.7728 21.635L17.8648 15.43C18.0711 15.2082 18.2641 14.9745 18.4428 14.73L18.5698 14.575C18.6182 14.5162 18.6592 14.4518 18.6918 14.383C19.4821 13.1763 19.9314 11.7785 19.9922 10.3374C20.053 8.89624 19.7231 7.46549 19.0373 6.19653C18.3516 4.92758 17.3355 3.86763 16.0966 3.12889C14.8578 2.39015 13.4422 2.00009 11.9998 2ZM11.9998 7C12.5932 7 13.1732 7.17595 13.6665 7.5056C14.1599 7.83524 14.5444 8.30378 14.7714 8.85195C14.9985 9.40013 15.0579 10.0033 14.9422 10.5853C14.8264 11.1672 14.5407 11.7018 14.1211 12.1213C13.7016 12.5409 13.167 12.8266 12.5851 12.9424C12.0031 13.0581 11.3999 12.9987 10.8518 12.7716C10.3036 12.5446 9.83504 12.1601 9.5054 11.6667C9.17576 11.1734 8.99981 10.5933 8.99981 10C8.99981 9.20435 9.31588 8.44129 9.87849 7.87868C10.4411 7.31607 11.2042 7 11.9998 7Z" fill="#fff"/>
@@ -155,14 +155,14 @@
                     <span class="font-medium">Для добавления мест войдите в учетную запись</span></div>
                 </div>
                 <!-- Фильтры -->
-                <button id="Filters" type="button" class="text-white bg-indigo-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <button id="Filters" data-modal-target="filter-modal" data-modal-toggle="filter-modal" type="button" class="text-white bg-indigo-400 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   Фильтры
                     <svg class="ml-2" width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4.00004 1.80001C4.00004 1.48175 3.87361 1.17652 3.64857 0.951478C3.42353 0.726434 3.1183 0.600006 2.80004 0.600006C2.48178 0.600006 2.17656 0.726434 1.95151 0.951478C1.72647 1.17652 1.60004 1.48175 1.60004 1.80001V10.5216C1.23522 10.7323 0.93228 11.0352 0.721655 11.4001C0.511031 11.7649 0.400146 12.1787 0.400146 12.6C0.400146 13.0213 0.511031 13.4351 0.721655 13.8C0.93228 14.1648 1.23522 14.4678 1.60004 14.6784V16.2C1.60004 16.5183 1.72647 16.8235 1.95151 17.0485C2.17656 17.2736 2.48178 17.4 2.80004 17.4C3.1183 17.4 3.42353 17.2736 3.64857 17.0485C3.87361 16.8235 4.00004 16.5183 4.00004 16.2V14.6784C4.36486 14.4678 4.6678 14.1648 4.87843 13.8C5.08905 13.4351 5.19994 13.0213 5.19994 12.6C5.19994 12.1787 5.08905 11.7649 4.87843 11.4001C4.6678 11.0352 4.36486 10.7323 4.00004 10.5216V1.80001ZM11.2 1.80001C11.2 1.48175 11.0736 1.17652 10.8486 0.951478C10.6235 0.726434 10.3183 0.600006 10 0.600006C9.68178 0.600006 9.37656 0.726434 9.15151 0.951478C8.92647 1.17652 8.80004 1.48175 8.80004 1.80001V3.32161C8.43522 3.53226 8.13228 3.83523 7.92166 4.20006C7.71103 4.56489 7.60015 4.97874 7.60015 5.40001C7.60015 5.82127 7.71103 6.23512 7.92166 6.59995C8.13228 6.96479 8.43522 7.26775 8.80004 7.47841V16.2C8.80004 16.5183 8.92647 16.8235 9.15151 17.0485C9.37656 17.2736 9.68178 17.4 10 17.4C10.3183 17.4 10.6235 17.2736 10.8486 17.0485C11.0736 16.8235 11.2 16.5183 11.2 16.2V7.47841C11.5649 7.26775 11.8678 6.96479 12.0784 6.59995C12.2891 6.23512 12.3999 5.82127 12.3999 5.40001C12.3999 4.97874 12.2891 4.56489 12.0784 4.20006C11.8678 3.83523 11.5649 3.53226 11.2 3.32161V1.80001ZM17.2 0.600006C17.5183 0.600006 17.8235 0.726434 18.0486 0.951478C18.2736 1.17652 18.4 1.48175 18.4 1.80001V10.5216C18.7649 10.7323 19.0678 11.0352 19.2784 11.4001C19.4891 11.7649 19.5999 12.1787 19.5999 12.6C19.5999 13.0213 19.4891 13.4351 19.2784 13.8C19.0678 14.1648 18.7649 14.4678 18.4 14.6784V16.2C18.4 16.5183 18.2736 16.8235 18.0486 17.0485C17.8235 17.2736 17.5183 17.4 17.2 17.4C16.8818 17.4 16.5766 17.2736 16.3515 17.0485C16.1265 16.8235 16 16.5183 16 16.2V14.6784C15.6352 14.4678 15.3323 14.1648 15.1217 13.8C14.911 13.4351 14.8001 13.0213 14.8001 12.6C14.8001 12.1787 14.911 11.7649 15.1217 11.4001C15.3323 11.0352 15.6352 10.7323 16 10.5216V1.80001C16 1.48175 16.1265 1.17652 16.3515 0.951478C16.5766 0.726434 16.8818 0.600006 17.2 0.600006V0.600006Z" fill="white"/>
                     </svg>                              
                 </button>
           </div>
-              <!-- Main add modal -->
+          <!-- Main add modal -->
           <div id="crud-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 mx-auto max-h-full max-w-2x1 max-w-">
               <!-- Modal content -->
@@ -219,8 +219,8 @@
                         <input type="number" name="rating" id="rating" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" min="0" max="5" placeholder="От 1 до 5" required="">
                     </div>
                     <div class="">
-                      <label for="tags" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Тэги</label>
-                      <input type="text" name="tags" id="tags" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="&laquo;Тэг &#8470;&nbsp;1&raquo;, &laquo;Тэг &#8470;&nbsp;2&raquo;, и&nbsp;т.д.">
+                      <label for="tags" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Теги</label>
+                      <input type="text" name="tags" id="tags" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="&laquo;Тег &#8470;&nbsp;1&raquo;, &laquo;Тег &#8470;&nbsp;2&raquo;, и&nbsp;т.д.">
                     </div>
                   </div>
                   <!-- -->
@@ -240,22 +240,71 @@
                   <input type="file" id="fileElem" multiple accept="image/*" class="text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
                   <div id="preview" class="flex flex-row gap-5 mt-3"></div>
                   <button id="clear-all" type="button" class="mt-3 inline-flex items-center px-3 py-1.5 bg-red-400 text-white rounded-lg">Очистить</button>
-                  <!-- <div class="col-span-4" style="flex: 1;">
-                    <label for="fileElem" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Добавьте фото</label>
-                    <div id="drop-area" class="bg-gray-100 border border-gray-300 rounded-lg mb-2 p-6 text-gray-600 text-center cursor-pointer">
-                        <input type="file" name="attachments" id="fileElem" multiple accept="image/*" style="display: none;">
-                        <p>Перетащите изображение или нажмите для выбора</p>
-                    </div>
-                    <div id="preview" class="flex flex-row gap-4"></div>
-                    <button id="clear-all" class="mt-4 inline-flex items-center px-3 py-1.5 bg-red-600 text-white rounded-lg">Clear All</button>
-                  </div> -->
                 </div>
                 <div class="flex justify-end gap-3">
-                  <button id="abort_form_button" type="submit" class="text-white inline-flex items-center bg-red-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  <button id="abort_form_button" type="submit" class="text-white inline-flex items-center bg-red-400 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                       Отменить
                   </button>
-                  <button id="add_place_form_button" type="submit" class="text-white inline-flex items-center bg-indigo-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  <button id="add_place_form_button" type="submit" class="text-white inline-flex items-center bg-indigo-400 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                       Добавить
+                  </button>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main filter add modal -->
+          <div id="filter-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative p-4 mx-auto max-h-full max-w-2x1 max-w-">
+              <!-- Modal content -->
+              <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                      Фильтры
+                  </h3>
+                  <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="filter-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Закрыть</span>
+                  </button>
+                </div>
+                <!-- Modal body -->
+                <form enctype="multipart/form-data" class="flex flex-col items-stretch gap-5 p-4 md:p-5">
+                  <div class="flex flex-row gap-5">
+                  <!-- -->
+                  <div class="flex flex-col gap-3">
+                    <div class="flex flex-col gap-2">
+                      <span class="block text-sm font-medium text-gray-900 dark:text-white">Рейтинг</span>
+                      <div class="flex flex-row gap-3">
+                        <div>
+                            <label for="min_rating" class="block text-sm font-medium text-gray-900 dark:text-white"></label>
+                            <input type="text" name="min_rating" id="min_rating" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="От">
+                        </div>
+                        <div>
+                            <label for="max_rating" class="block text-sm font-medium text-gray-900 dark:text-white"></label>
+                            <input type="text" name="max_rating" id="max_rating" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="До">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="">
+                        <label for="filter_users" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Пользователи</label>
+                        <input type="number" name="users" id="users" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Введите логин пользователя">
+                    </div>
+                    <div class="">
+                      <label for="filter_tags" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Теги</label>
+                      <input type="text" name="filter_tags" id="filter_tags" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Укажите теги через пробел">
+                    </div>
+                  </div>
+                </div>
+                <div class="flex justify-end gap-3">
+                  <button id="reset_filter" type="button" class="text-gray-900 hover:text-white inline-flex items-center border border-purple-400 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900">
+                    Сбросить
+                  </button>
+                  <button id="filter_place_button" type="button" class="text-white inline-flex items-center bg-indigo-400 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      Применить
                   </button>
                 </div>
                 </form>
@@ -264,7 +313,7 @@
           </div>
         </section>
         <!-- Сюда добавляются карточки мест -->
-        <section id="mainCardPlace" class="flex flex-col gap-5 overflow-y-scroll" style="height: 700px;">
+        <section id="mainCardPlace" class="flex flex-col gap-5 overflow-y-scroll" style="height: 700px; width: 591px;">
           
         </section>
       </main>
@@ -297,10 +346,12 @@
       </footer>
       <!-- JavaScript -->
       <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
-      <script src="/js/authentication.js"></script>
-      <script src="/js/get_places.js"></script>
+      <script src="/js/user_manipulations/authentication.js"></script>
+      <script src="/js/places_manipulations/get_places.js"></script>
       <script src="/js/ymap.js"></script>
       <script src="/js/dadata.js"></script>
-      <script src="/js/add_place.js"></script>
+      <script src="/js/places_manipulations/add_place.js"></script>
+      <script src="/js/get_place_filters/get_places_name.js"></script>
+      <script src="/js/get_place_filters/get_place_rating.js"></script>
     </body>
 </html>

@@ -1,6 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
+        // Получение параметров фильтров из sessionStorage
+        let filterParams = sessionStorage.getItem('filterParams');
+
+        // Если есть параметры фильтров, добавляем их к URL
+        if (filterParams) {
+            jsonUrl = filterParams;
+        } else {var jsonUrl = 'http://localhost:8080/api/v1/places';}
     // URL файла JSON на сервере
-    var jsonUrl = 'http://localhost:8080/api/v1/places';
 
     // Получаем ссылку на элемент, в который будем добавлять карточки товаров
     var mainCardPlace = document.getElementById('mainCardPlace');

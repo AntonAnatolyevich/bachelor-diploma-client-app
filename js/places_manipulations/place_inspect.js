@@ -68,7 +68,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 var map = new ymaps.Map('map', {
                     center: [latitude, longitude], // Устанавливаем центр карты
                     zoom: 15 // Устанавливаем масштаб карты
-                });
+                },{
+                    suppressMapOpenBlock: true
+            });
 
                 // Создаем метку на карте
                 var placemark = new ymaps.Placemark([latitude, longitude], {

@@ -1,10 +1,24 @@
 ymaps.ready(init);
 
 function init() {
+    // Загружаем данные из Local Storage (если они есть)
+    var savedMapCenter = localStorage.getItem('mapCenter');
+    var savedMapZoom = localStorage.getItem('mapZoom');
+
     // Создаем карту
     var myMap = new ymaps.Map('map', {
-        center: [55.76, 37.64], // Центр карты
-        zoom: 10 // Масштаб карты
+        center: savedMapCenter ? JSON.parse(savedMapCenter) : [55.76, 37.64], // Значение по умолчанию, если данные отсутствуют
+        zoom: savedMapZoom ? JSON.parse(savedMapZoom) : 7
+        
+    }, {
+        suppressMapOpenBlock: true
+});
+
+    // Обработчик изменения центра карты
+    myMap.events.add('boundschange', function (event) {
+        // Сохраняем новые значения центра и масштаба карты в Local Storage
+        localStorage.setItem('mapCenter', JSON.stringify(event.get('newCenter')));
+        localStorage.setItem('mapZoom', JSON.stringify(event.get('newZoom')));
     });
 
     // URL файла JSON на сервере
@@ -27,9 +41,14 @@ function init() {
                 coordinates,
                 {
                     hintContent: place.name, // Всплывающая подсказка при наведении на метку
-                    balloonContent: place.description // Содержимое балуна метки
+                    balloonContent: place.short_description // Содержимое балуна метки
                 }
             );
+            // Добавляем обработчик клика на метку
+            placemark.events.add('click', function () {
+                // Переходим на другую страницу при клике на метку
+                window.location.href = 'place.html?' + place.id;
+            });
 
             // Добавляем метку в массив
             placemarks.push(placemark);
