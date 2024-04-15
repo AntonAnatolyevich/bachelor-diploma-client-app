@@ -7,8 +7,8 @@ function init() {
 
     // Создаем карту
     var myMap = new ymaps.Map('map', {
-        center: savedMapCenter ? JSON.parse(savedMapCenter) : [55.76, 37.64], // Значение по умолчанию, если данные отсутствуют
-        zoom: savedMapZoom ? JSON.parse(savedMapZoom) : 7
+        center: savedMapCenter ? JSON.parse(savedMapCenter) : [68.96635107162403, 33.083248475377076], // Значение по умолчанию, если данные отсутствуют
+        zoom: savedMapZoom ? JSON.parse(savedMapZoom) : 9
         
     }, {
         suppressMapOpenBlock: true

@@ -93,11 +93,11 @@
                             <form id="loginForm" class="space-y-4" action="#">
                                 <div>
                                     <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Логин</label>
-                                    <input value="Anton1010" type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Логин" required />
+                                    <input value="" type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Логин" required />
                                 </div>
                                 <div>
                                     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Пароль</label>
-                                    <input value="123456" type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                                    <input value="" type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
                                 </div>
                                 <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Войти</button>
                                 <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
@@ -205,7 +205,7 @@
                     </div>
                     <div class="">
                       <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Адрес (при наличии)</label>
-                      <input type="text" name="address" id="address" list="streetsList" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Введите адрес" required="">
+                      <input type="text" name="address" id="address" list="streetsList" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Введите адрес">
                       <!-- Даталист улиц для выбора -->
                       <datalist id="streetsList">
                           <!-- Сюда будут добавлены варианты улиц -->
@@ -213,7 +213,7 @@
                     </div>
                     <div class="">
                         <label for="rating" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ваша оценка</label>
-                        <input type="number" name="rating" id="rating" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" min="0" max="5" placeholder="От 1 до 5" required="">
+                        <input type="number" name="rating" id="rating" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" min="0" max="5" placeholder="От 1 до 5" required>
                     </div>
                     <div class="">
                       <label for="tags" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Теги</label>
@@ -224,11 +224,11 @@
                   <div class="flex flex-col gap-3">
                     <div class="">
                         <label for="full_description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Описание</label>
-                        <textarea type="text" name="full_description" id="full_description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block shrink w-56 h-48 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Подробное описание места" required=""></textarea>
+                        <textarea type="text" name="full_description" id="full_description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block shrink w-56 h-48 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Подробное описание места"></textarea>
                         </div>
                     <div class="">
                         <label for="how_to_get" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Как добраться?</label>
-                        <textarea type="textarea" name="how_to_get" id="how_to_get" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block shrink w-56 h-48 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Маршрут к месту" required=""></textarea>
+                        <textarea type="textarea" name="how_to_get" id="how_to_get" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block shrink w-56 h-48 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Маршрут к месту"></textarea>
                     </div>
                   </div>
                 </div>

@@ -7,8 +7,6 @@ document.getElementById('search_button').addEventListener('click', function() {
     // Получаем ссылку на элемент, в который будем добавлять карточки товаров
     let mainCardPlace = document.getElementById('mainCardPlace');
     mainCardPlace.innerHTML = '';
-    var creator_id = localStorage.getItem('id');
-    
     // Загружаем файл JSON с сервера
     fetch(jsonUrl)
         .then(response => response.json())
@@ -16,7 +14,6 @@ document.getElementById('search_button').addEventListener('click', function() {
             // Создаем карточку товара для каждого товара из массива
             placesData.forEach(function(placeData) {
                 
-                if (placeData.creator.id === creator_id) {
                     // Создаем элемент <a> для карточки товара
                 var aElement = document.createElement('a');
                 aElement.setAttribute('href', 'place.html?'+ placeData.id);
@@ -78,7 +75,6 @@ document.getElementById('search_button').addEventListener('click', function() {
                 aElement.appendChild(ratingElement);
                 // Добавляем элемент <a> в контейнер с карточками товаров
                 mainCardPlace.appendChild(aElement);
-                }
             });
         })
         .catch(error => console.error('Ошибка загрузки данных:', error));
