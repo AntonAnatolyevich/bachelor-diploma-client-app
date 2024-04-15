@@ -121,11 +121,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 manipulation_button_container.appendChild(manipulation_button_edit);
                 manipulation_button_container.appendChild(manipulation_button_delete);
             }
-                let creator_id = sessionStorage.getItem('creator_id');
-                let curent_creator_id = localStorage.getItem('id');
-                if (creator_id === curent_creator_id) {
-                    document.getElementById('rating').style.display = 'none';
-                }
+                // let creator_id = sessionStorage.getItem('creator_id');
+                // let curent_creator_id = localStorage.getItem('id');
+                // if (creator_id === curent_creator_id) {
+                //     document.getElementById('rating').style.display = 'none';
+                // }
         });
 });
 
